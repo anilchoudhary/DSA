@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+int l,r,ll;
 
 int max_sum_subArray(int a[], int n)
 {
@@ -8,9 +9,18 @@ int max_sum_subArray(int a[], int n)
 	{
 		sum += a[i];
 		if(sum>ans)
+		{
 			ans = sum;
+			ll = l;
+			r=i+1;	
+		}
 		if(sum<0)
+		{
 			sum = 0;
+			l=i+2;
+			r=0;
+		}
+//		r=++l;	
 	}
 	return ans;
 }
@@ -27,5 +37,7 @@ int main()
 		cin>>a[i];
 	}
 	cout<<"Maximum sum subArray: ";
-	cout<<max_sum_subArray(a,n);
+	cout<<max_sum_subArray(a,n)<<endl;
+	cout<<"left: "<<ll<<endl;
+	cout<<"right: "<<r<<endl;
 }
