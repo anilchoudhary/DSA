@@ -1,64 +1,72 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-    ios_base::sync_with_stdio(false); 
+int main()
+{
+    ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-	int T;
-	scanf("%d",&T);
-	while(T--){
-	    int N,Q,x1,x2,y;
-        scanf("%d%d",&N,&Q);
-        int A[N],Px[N],Py[N],lstart[N-1][2],lend[N-1][2];
-        int k = 0, l = 0;
-        for(int i=0;i<N;i++){
-            scanf("%d",&A[i]);
-            Px[i] = i+1;
-            Py[i] = A[i];
-            if(i != 0 && i != N-1){
-                lend[l][0] = Px[i];
-                lend[l][1] = Py[i];
-                l++;
-                lstart[k][0] = Px[i];
-                lstart[k][1] = Py[i];
-                k++;
-            }
-            else if(i == 0){
-                lstart[k][0] = Px[i];
-                lstart[k][1] = Py[i];
-                k++;
-            }
-            else if(i == N-1){
-                lend[l][0] = Px[i];
-                lend[l][1] = Py[i];
-                l++;
-            }           
-        }
-
-
-        for(int j=0;j<Q;j++){
-            scanf("%d%d%d", &x1, &x2, &y);
-            int count = 0;
-            float height,h,l,slope,newpoint;
-            for(int i=0;i<N-1;i++){
-                if((y >= lstart[i][1] && y <= lend[i][1]) || (y <= lstart[i][1] && y >= lend[i][1])){
-                    if(x2 != lstart[i][0] && x1 != lend[i][0]){
-                        height = y - lstart[i][1];
-                        h = lend[i][1] - lstart[i][1];
-                        l = lend[i][0] - lstart[i][0];
-                        slope = l/h;
-                        newpoint = lstart[i][0] + slope*height;
-                        if((x1 <= newpoint && x2 >= newpoint) || (x1 >= newpoint && x2 <= newpoint)){
-                            count++;
-                            // cout<<"height: "<<height<<"  h: "<<h<<"  l: "<<l<<"  slope: "<<slope<<"  newpoint: "<<newpoint<<endl;
-                        }
-                    }
-                }
-            }
-            cout<<count<<endl;
-        }
-        
+    int t;
+    cin>>t;
+    while(t--)
+	{
+	    int n,q,x1,x2,y;
+	    cin>>n>>q;
+	    int arr[n],px[n],py[n],ls[n-1][2],le[n-1][2];
+	    int k = 0, l = 0;
+	    for (int i=0;i<n;i++)
+	    {
+	        cin>>arr[i];
+	        px[i] = i+1;
+	        py[i] = arr[i];
+	        if(i != 0 && i != n-1)
+			{
+		        le[l][0] = px[i];
+		        le[l][1] = py[i];
+		        l++;
+		        ls[k][0] = px[i];
+		        ls[k][1] = py[i];
+		        k++;
+	        }
+	        else if(i == 0)
+			{
+		        ls[k][0] = px[i];
+		        ls[k][1] = py[i];
+		        k++;
+	        }
+	        else if(i == n-1)
+			{
+		        le[l][0] = px[i];
+		        le[l][1] = py[i];
+		        l++;        
+			}
+	    }
+    
+	    for(int j=0;j<q;j++)
+		{
+		    cin>>x1>>x2>>y;
+		    int count = 0;
+		    float height,h,l,slope,newpoint;
+		    for(int i = 0;i<n-1;i++)
+			{
+		        if((y >= ls[i][1] && y <= le[i][1]) || (y <= ls[i][1] && y >= le[i][1]))
+				{
+		            if(x2 != ls[i][0] && x1 != le[i][0])
+					{
+			            height = y - ls[i][1];
+			            h = le[i][1] - ls[i][1];
+			            l = le[i][0] - ls[i][0];
+			            slope = l/h;
+			            newpoint = ls[i][0] + slope*height;
+			            if((x1 <= newpoint && x2 >= newpoint) || (x1 >= newpoint && x2 <= newpoint))
+						{
+			            	count++;
+			            }
+		            }
+		        }
+		    }
+		    cout<< count<<"\n";
+	    }
 	}
-	return 0;
+return 0;
 }
