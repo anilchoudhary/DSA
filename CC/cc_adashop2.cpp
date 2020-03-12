@@ -9,7 +9,10 @@ int main()
 	{
 		int x,y;
 		cin>>x>>y;
-		cout<<"18"<<endl;
+		int m = (x+y) / 2;
+		cout<<"20"<<endl;
+		cout<<m<<" "<<m<<endl;
+		cout<<"1 1"<<endl;
 		cout<<"7 7"<<endl;
 		cout<<"8 6"<<endl;
 		cout<<"3 1"<<endl;
