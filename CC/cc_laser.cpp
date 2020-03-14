@@ -46,18 +46,18 @@ int main()
 		{
 		    cin>>x1>>x2>>y;
 		    int count = 0;
-		    float height,h,l,slope,newpoint;
+		    float newpoint,m1,c1,c2;
 		    for(int i = 0;i<n-1;i++)
 			{
 		        if((y >= ls[i][1] && y <= le[i][1]) || (y <= ls[i][1] && y >= le[i][1]))
 				{
 		            if(x2 != ls[i][0] && x1 != le[i][0])
 					{
-			            height = y - ls[i][1];
-			            h = le[i][1] - ls[i][1];
-			            l = le[i][0] - ls[i][0];
-			            slope = l/h;
-			            newpoint = ls[i][0] + slope*height;
+						m1 = (le[i][1] - ls[i][1]) / (le[i][0] - ls[i][0]);
+						c1 = ls[i][1] - m1 * ls[i][0];
+						c2 = y;
+						newpoint = (c2 - ls[i][1])/m1 + ls[i][0];
+
 			            if((x1 <= newpoint && x2 >= newpoint) || (x1 >= newpoint && x2 <= newpoint))
 						{
 			            	count++;
