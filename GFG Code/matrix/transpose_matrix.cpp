@@ -11,11 +11,16 @@ int main()
         {11,12,13},
     };
 
-    for(int j=0;j<c;j++)
+    for(int i=0;i<r;i++)
     {
-        for(int i=0;i<r;i++)
-            cout<<mat[i][j]<<" ";
-        cout<<endl;
+        for(int j=i+1;j<c;j++)
+            swap(mat[i][j], mat[j][i]);
     }
-
+    for(int i=0;i<r;i++)
+        {
+                for(int j=0;j<c;j++)
+                    cout<<mat[i][j]<<" ";
+                cout<<endl;
+        }
+    return 0;
 }
