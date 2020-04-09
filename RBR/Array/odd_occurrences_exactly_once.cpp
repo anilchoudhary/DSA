@@ -1,3 +1,5 @@
+// find the number occuring oddd number of times in given array
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -36,9 +38,16 @@ int32_t main()
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	int i, j, k, p, q, r, x, y, u, v, n, m;
 	anil_();
+	n = 7;
+	x = 0;
+	mk(arr, n, int)
+	fo(i, n)
+	{
+		cin >> arr[i];
+		x ^= arr[i];
+	}
 
-
-
-
+	cout << x << endl;
 	return 0;
 }
+
