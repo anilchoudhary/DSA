@@ -8,7 +8,7 @@ int main()
     x = 19;
     int arr[n] = {0,3,44,5,9,7};
     sort(arr, arr+n);
-    for(int i=0;i<n;i++)
+    for(int i=0;i<n-2;i++)
     {
         l = i+1;
         h = n-1;
