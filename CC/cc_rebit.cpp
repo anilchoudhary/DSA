@@ -1,18 +1,15 @@
-//OM NAMO NARAYANA
 #include <bits/stdc++.h>
 #define MOD 998244353
 using namespace std;
 
-//accepted:)
-
 long long gcd(long long a, long long b)
 {
-    if(b==0)
+    if (b == 0)
     {
         return a;
     }
     else
-        return gcd(b, a%b);
+        return gcd(b, a % b);
 }
 // Function for extended Euclidean Algorithm
 long long gcdExtended(long long a, long long b, long long *x, long long *y)
@@ -26,11 +23,11 @@ long long gcdExtended(long long a, long long b, long long *x, long long *y)
     }
 
     long long x1, y1; // To store results of recursive call
-    long long gcd = gcdExtended(b%a, a, &x1, &y1);
+    long long gcd = gcdExtended(b % a, a, &x1, &y1);
 
     // Update x and y using results of
     // recursive call
-    *x = y1 - (b/a) * x1;
+    *x = y1 - (b / a) * x1;
     *y = x1;
 
     return gcd;
@@ -43,31 +40,31 @@ vector<vector< long long> > postfix(string s)
     vector<long long > number;
     long long num;
     num = 748683265;
-    for(long long i = 0; i < 4; i++)number.push_back(num);
+    for (long long i = 0; i < 4; i++)number.push_back(num);
     vector<vector<long long > > ans;
     vector<long long> R, And, Xr;
-    R.push_back(1);And.push_back(2);Xr.push_back(3);
+    R.push_back(1); And.push_back(2); Xr.push_back(3);
     stack<char> buf;
-    for(long long n  = 0 ; n < s.size(); n++)
+    for (long long n  = 0 ; n < s.size(); n++)
     {
-        if(s[n] == '#')
+        if (s[n] == '#')
         {
             ans.push_back(number);
             continue;
         }
-        if(s[n] == ')')
+        if (s[n] == ')')
         {
-            while(buf.top() != '(')
+            while (buf.top() != '(')
             {
-                if(buf.top() == '|')
+                if (buf.top() == '|')
                 {
                     ans.push_back(R);
                 }
-                else if(buf.top() == '&')
+                else if (buf.top() == '&')
                 {
                     ans.push_back(And);
                 }
-                else if(buf.top() == '^')
+                else if (buf.top() == '^')
                 {
                     ans.push_back(Xr);
                 }
@@ -75,21 +72,21 @@ vector<vector< long long> > postfix(string s)
             }
             buf.pop();
         }
-        else if(s[n] == '(' || buf.empty() || buf.top() == '(')
+        else if (s[n] == '(' || buf.empty() || buf.top() == '(')
         {
             buf.push(s[n]);
         }
         else
         {
-            if(buf.top() == '|')
+            if (buf.top() == '|')
             {
                 ans.push_back(R);
             }
-            else if(buf.top() == '&')
+            else if (buf.top() == '&')
             {
                 ans.push_back(And);
             }
-            else if(buf.top() == '^')
+            else if (buf.top() == '^')
             {
                 ans.push_back(Xr);
             }
@@ -97,13 +94,13 @@ vector<vector< long long> > postfix(string s)
             buf.push(s[n]);
         }
     }
-    while(!buf.empty())
+    while (!buf.empty())
     {
-        if(buf.top() == '|')
+        if (buf.top() == '|')
             ans.push_back(R);
-        else if(buf.top() == '&')
+        else if (buf.top() == '&')
             ans.push_back(And);
-        else if(buf.top() == '^')
+        else if (buf.top() == '^')
             ans.push_back(Xr);
         buf.pop();
     }
@@ -112,12 +109,12 @@ vector<vector< long long> > postfix(string s)
 
 long long Add(long long a, long long  b)
 {
-   return (a+b)%MOD;
+    return (a + b) % MOD;
 }
 
 long long mul(long long a, long long b)
 {
-   return (a*b)%MOD;
+    return (a * b) % MOD;
 }
 
 vector<long long> CalcOr(vector<long long > a, vector<long long > b)
@@ -125,9 +122,9 @@ vector<long long> CalcOr(vector<long long > a, vector<long long > b)
     vector<long long > ans(4);
     long long buf;
     long long term1;
-    ans[0] = (a[0]* b[0]) %MOD;
+    ans[0] = (a[0] * b[0]) % MOD;
     term1 = b[0];
-    for(long long n = 1; n < 4; n++)
+    for (long long n = 1; n < 4; n++)
     {
         term1 = Add(term1, b[n]);
     }
@@ -157,7 +154,7 @@ vector<long long> CalcOr(vector<long long > a, vector<long long > b)
     buf = Add(term1, term2);
     buf = Add(buf, term3);
 
-    ans[2] =buf;
+    ans[2] = buf;
 
     term1 = mul(a[0], b[3]);
     term2 = mul(a[3], b[0]);
@@ -181,7 +178,7 @@ vector<long long > CalcAnd(vector<long long > a, vector<long long > b)
     ans[1] = mul(a[1], b[1]);
 
     term1 = b[0];
-    for(long long n = 1; n < 4; n++)
+    for (long long n = 1; n < 4; n++)
     {
         term1 = Add(term1, b[n]);
     }
@@ -288,51 +285,51 @@ long long CalcInv(long long a)
 {
     long long x, y;
     long long gcd = gcdExtended(a, MOD, &x, &y);
-    while(x < 0) x += MOD;
-    return x%MOD;
+    while (x < 0) x += MOD;
+    return x % MOD;
 }
 
 // Driver Code
 int main()
 {
     long long T;
-    cin>>T;
-    for(long long t = 0; t < T; t++)
+    cin >> T;
+    for (long long t = 0; t < T; t++)
     {
         string s;
-        cin>>s;
+        cin >> s;
         long long num = 0;
         vector<vector<long long > >  pfix = postfix(s);
         stack<vector<long long > > st;
         vector<long long > ele;
-        for(long long n = 0; n < pfix.size(); n++)
+        for (long long n = 0; n < pfix.size(); n++)
         {
             ele = pfix[n];
-            if(ele.size() == 4)
+            if (ele.size() == 4)
             {
                 st.push(ele);
             }
-            else if(ele.size() == 1)
+            else if (ele.size() == 1)
             {
                 vector<long long > a, b, c;
                 a = st.top();
                 st.pop();
                 b = st.top();
                 st.pop();
-                if(ele[0] == 1)
+                if (ele[0] == 1)
                     c = CalcOr(a, b);
-                if(ele[0] == 2)
+                if (ele[0] == 2)
                     c = CalcAnd(a, b);
-                if(ele[0] == 3)
+                if (ele[0] == 3)
                     c = CalcXor(a, b);
                 st.push(c);
             }
         }
         ele = st.top();
         vector<long long> ans(4);
-        for(long long i = 0; i < 4; i++)
+        for (long long i = 0; i < 4; i++)
         {
-            ans[i] = ((ele[i]))%MOD;
+            ans[i] = ((ele[i])) % MOD;
             printf("%lld ", ans[i]);
         }
         printf("\n");
