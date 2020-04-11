@@ -3,18 +3,26 @@ using namespace std;
 
 int main()
 {
-    int n = 35;
-    int ps =1,cs=1;
-    for(int i=2;i*i<=n;i++)
+    int x = 35;
+    int ans;
+    if(x==0||x==1)
+        return x;
+    int l=1,h=x;
+    while(l<=h)
     {
-        cs = i*i;
-        if(cs>n)
+        int m = (l+h)/2;
+        if(m*m == x)
+            return m;
+        if(m*m<x)
         {
-            break;
+            l=m+1;
+            ans = m;
         }
-        ps = i;
+        else
+            h=m-1;
     }
-    cout<<ps<<endl;
+    cout<<ans<<endl;
+
     return 0;
 
 }
