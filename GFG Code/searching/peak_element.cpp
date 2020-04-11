@@ -1,3 +1,4 @@
+// peak element = not smaller than neighbors
 #include<bits/stdc++.h>
 using namespace std;
 
