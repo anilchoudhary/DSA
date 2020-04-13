@@ -45,8 +45,7 @@ vector<vi> postfix(string s)
 	vi number;
 	int num;
 	num = 748683265;
-	for (int i = 0; i < 4; i++)
-		number.pb(num);
+	for (int i = 0; i < 4; i++)number.pb(num);
 	vector<vi > ans;
 	vi R, And, Xr;
 	R.pb(1); And.pb(2); Xr.pb(3);
@@ -123,7 +122,7 @@ int  mul(int  a, int  b)
 	return (a * b) % MOD;
 }
 
-vi calOR(vi a, vi b)
+vi CalcOr(vi a, vi b)
 {
 	vi ans(4);
 	int  buf;
@@ -176,7 +175,7 @@ vi calOR(vi a, vi b)
 }
 
 
-vi calAND(vi a, vi b)
+vi CalcAnd(vi a, vi b)
 {
 	vi ans(4);
 	int  buf;
@@ -232,7 +231,7 @@ vi calAND(vi a, vi b)
 	return ans;
 }
 
-vi calXOR(vi a, vi b)
+vi CalcXor(vi a, vi b)
 {
 	int  buf;
 	int  term1, term2, term3, term4;
@@ -287,7 +286,7 @@ vi calXOR(vi a, vi b)
 }
 
 
-int  CalINV(int  a)
+int  CalcInv(int  a)
 {
 	int  x, y;
 	int  gcd = gcdExtended(a, MOD, &x, &y);
@@ -332,11 +331,11 @@ int32_t main()
 				b = st.top();
 				st.pop();
 				if (ele[0] == 1)
-					c = calOR(a, b);
+					c = CalcOr(a, b);
 				if (ele[0] == 2)
-					c = calAND(a, b);
+					c = CalcAnd(a, b);
 				if (ele[0] == 3)
-					c = calXOR(a, b);
+					c = CalcXor(a, b);
 				st.push(c);
 			}
 		}
@@ -345,7 +344,7 @@ int32_t main()
 		for (int  i = 0; i < 4; i++)
 		{
 			ans[i] = ((ele[i])) % MOD;
-			cout << ans[i] << " ";
+			cout << ans[i];
 		}
 		cout << "\n";
 	}
