@@ -3,43 +3,43 @@ using namespace std;
 
 int main()
 {
-    int n,m,k,s;
-    cin>>n>>m>>k>>s;
-    int flag=0;
-    int arr[n][m] = {
-        {'.','.','*','.'},
-        {'.','#','.','.'},
-        {'*','*','.','.'},
-        {'.','#','*','*'},
-    };
-    for(int i=0;i<n;i++)
+    int m, n, k, s;
+    cin >> m >> n >> k >> s;
+    int flag = true;
+    char arr[100][100];
+    for (int i = 0; i < m; i++)
     {
-        for(int j=0;j<m;j++)
+        for (int j = 0; j < n; j++)
         {
-            int ch = arr[i][j];
-
-            if(s>k)
-            {
-                if(ch=='.')
-                    s -= 2;
-                else if(ch=='*')
-                    s += 5;
-                else
-                    break;
-                if(j!=m-1)
-                    s -= 1;
-            }
-            else
-            {
-                flag = 1;
-                break;
-            }
-            //cout<<s<<endl;
+            cin >> arr[i][j];
         }
     }
-    if(!flag)
-        cout<<"yes "<<s<<endl;
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            char ch = arr[i][j];
+
+            if (s < k)
+            {
+                flag = false;
+                break;
+            }
+            if (ch == '.')
+                s -= 2;
+            else if (ch == '*')
+                s += 5;
+            else
+                break;
+            if (j != n - 1)
+                s -= 1;
+        }
+        //cout<<s<<endl;
+    }
+    if (flag)
+        cout << "yes " << endl << s;
     else
-        cout<<"no"<<endl;
+        cout << "no" << endl;
     return 0;
 }
