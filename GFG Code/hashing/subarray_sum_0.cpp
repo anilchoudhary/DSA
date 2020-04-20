@@ -5,26 +5,18 @@ int main()
 {
     int n=6;
     int arr[n]={5,6,-4,-2,8,10};
-    int psum[n]={0};
-    psum[0] = arr[0];
+    int presum = 0;
+    unordered_set <int> us;
     for(int i=1;i<n;i++)
     {
-        psum[i] = psum[i-1] + arr[i];
+        presum += arr[i];
+        if(us.find(presum)!=us.end())
+            {
+                cout<<"yes"<<endl;
+                return 0;
+            }
     }
-    unordered_map<int , int> um;
-    for(int i =0;i<n;i++)
-    {
-        um[psum[i]]++;
-    }
-    int flag=0;
-    for(auto i: um)
-    {
-        if(i.second == 2)
-            flag=1;
-    }
-    if(flag)
-        cout<<"yes"<<endl;
-    else
-        cout<<"no"<<endl;
+    cout<<"no"<<endl;
+
     return 0;
 }
