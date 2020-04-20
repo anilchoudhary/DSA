@@ -4,17 +4,20 @@ using namespace std;
 int main()
 {
     int n=6;
-    int arr[n]={5,6,-4,-2,8,10};
+    int x=11;
+    int arr[n]={5,6,-4,3,8,10};
     int presum = 0;
     unordered_set <int> us;
-    for(int i=1;i<n;i++)
+    us.insert(0);
+    for(int i=0;i<n;i++)
     {
         presum += arr[i];
-        if(us.find(presum)!=us.end())
+        if(us.find(presum-x)!=us.end())
             {
                 cout<<"yes"<<endl;
                 return 0;
             }
+            us.insert(presum);
     }
     cout<<"no"<<endl;
 
