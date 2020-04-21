@@ -21,7 +21,7 @@ int findRepeatFirst(char* s)
 	}
 
 	for (i = 0; i < MAX_CHAR; i++) {
-		if (hash[i] == 2) {
+		if (hash[i] == 1) {
 			if (p == -1)
 				p = pos[i];
 			else if (p > pos[i])
