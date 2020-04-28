@@ -4,7 +4,7 @@
 #include<algorithm>
 #define pow2(n) (1 << (n))
 using namespace std;
- 
+
 
 struct avl_node
 {
@@ -12,28 +12,28 @@ struct avl_node
     struct avl_node *left;
     struct avl_node *right;
 }*root;
- 
+
 
 class avlTree
 {
-    public:
-        int height(avl_node *);
-        int diff(avl_node *);
-        avl_node *rr_rotation(avl_node *);
-        avl_node *ll_rotation(avl_node *);
-        avl_node *lr_rotation(avl_node *);
-        avl_node *rl_rotation(avl_node *);
-        avl_node* balance(avl_node *);
-        avl_node* insert(avl_node *, int );
-        void inorder(avl_node *);
-        void preorder(avl_node *);
-        void postorder(avl_node *);
-        avlTree()
-        {
-            root = NULL;
-        }
+public:
+    int height(avl_node *);
+    int diff(avl_node *);
+    avl_node *rr_rotation(avl_node *);
+    avl_node *ll_rotation(avl_node *);
+    avl_node *lr_rotation(avl_node *);
+    avl_node *rl_rotation(avl_node *);
+    avl_node* balance(avl_node *);
+    avl_node* insert(avl_node *, int );
+    void inorder(avl_node *);
+    void preorder(avl_node *);
+    void postorder(avl_node *);
+    avlTree()
+    {
+        root = NULL;
+    }
 };
- 
+
 
 int main()
 {
@@ -41,55 +41,55 @@ int main()
     avlTree avl;
     while (1)
     {
-        cout<<"\n---------------------"<<endl;
-        cout<<"AVL Tree Implementation"<<endl;
-        cout<<"---------------------"<<endl;
-        cout<<"1.Insert Element into the tree"<<endl;
-        cout<<"2.Display Balanced AVL Tree"<<endl;
-        cout<<"3.InOrder traversal"<<endl;
-        cout<<"4.PreOrder traversal"<<endl;
-        cout<<"5.PostOrder traversal"<<endl;
-        cout<<"6.Exit"<<endl;
-        cout<<"Enter your Choice: ";
-        cin>>choice;
-        switch(choice)
+        cout << "\n---------------------" << endl;
+        cout << "AVL Tree Implementation" << endl;
+        cout << "---------------------" << endl;
+        cout << "1.Insert Element into the tree" << endl;
+        cout << "2.Display Balanced AVL Tree" << endl;
+        cout << "3.InOrder traversal" << endl;
+        cout << "4.PreOrder traversal" << endl;
+        cout << "5.PostOrder traversal" << endl;
+        cout << "6.Exit" << endl;
+        cout << "Enter your Choice: ";
+        cin >> choice;
+        switch (choice)
         {
         case 1:
-            cout<<"Enter value to be inserted: ";
-            cin>>item;
+            cout << "Enter value to be inserted: ";
+            cin >> item;
             root = avl.insert(root, item);
             break;
         case 2:
             if (root == NULL)
             {
-                cout<<"Tree is Empty"<<endl;
+                cout << "Tree is Empty" << endl;
                 continue;
             }
         case 3:
-            cout<<"Inorder Traversal:"<<endl;
+            cout << "Inorder Traversal:" << endl;
             avl.inorder(root);
-            cout<<endl;
+            cout << endl;
             break;
         case 4:
-            cout<<"Preorder Traversal:"<<endl;
+            cout << "Preorder Traversal:" << endl;
             avl.preorder(root);
-            cout<<endl;
+            cout << endl;
             break;
         case 5:
-            cout<<"Postorder Traversal:"<<endl;
-            avl.postorder(root);    
-            cout<<endl;
+            cout << "Postorder Traversal:" << endl;
+            avl.postorder(root);
+            cout << endl;
             break;
         case 6:
-            exit(1);    
+            exit(1);
             break;
         default:
-            cout<<"Wrong Choice"<<endl;
+            cout << "Wrong Choice" << endl;
         }
     }
     return 0;
 }
- 
+
 
 int avlTree::height(avl_node *temp)
 {
@@ -103,16 +103,16 @@ int avlTree::height(avl_node *temp)
     }
     return h;
 }
- 
+
 
 int avlTree::diff(avl_node *temp)
 {
     int l_height = height (temp->left);
     int r_height = height (temp->right);
-    int b_factor= l_height - r_height;
+    int b_factor = l_height - r_height;
     return b_factor;
 }
- 
+
 
 avl_node *avlTree::rr_rotation(avl_node *parent)
 {
@@ -131,7 +131,7 @@ avl_node *avlTree::ll_rotation(avl_node *parent)
     temp->right = parent;
     return temp;
 }
- 
+
 
 avl_node *avlTree::lr_rotation(avl_node *parent)
 {
@@ -140,7 +140,7 @@ avl_node *avlTree::lr_rotation(avl_node *parent)
     parent->left = rr_rotation (temp);
     return ll_rotation (parent);
 }
- 
+
 
 avl_node *avlTree::rl_rotation(avl_node *parent)
 {
@@ -149,7 +149,7 @@ avl_node *avlTree::rl_rotation(avl_node *parent)
     parent->right = ll_rotation (temp);
     return rr_rotation (parent);
 }
- 
+
 
 avl_node *avlTree::balance(avl_node *temp)
 {
@@ -170,7 +170,7 @@ avl_node *avlTree::balance(avl_node *temp)
     }
     return temp;
 }
- 
+
 
 avl_node *avlTree::insert(avl_node *root, int value)
 {
@@ -194,17 +194,17 @@ avl_node *avlTree::insert(avl_node *root, int value)
     }
     return root;
 }
- 
 
 
- 
+
+
 
 void avlTree::inorder(avl_node *tree)
 {
     if (tree == NULL)
         return;
     inorder (tree->left);
-    cout<<tree->data<<"  ";
+    cout << tree->data << "  ";
     inorder (tree->right);
 }
 
@@ -212,12 +212,12 @@ void avlTree::preorder(avl_node *tree)
 {
     if (tree == NULL)
         return;
-    cout<<tree->data<<"  ";
+    cout << tree->data << "  ";
     preorder (tree->left);
     preorder (tree->right);
- 
+
 }
- 
+
 
 void avlTree::postorder(avl_node *tree)
 {
@@ -225,5 +225,5 @@ void avlTree::postorder(avl_node *tree)
         return;
     postorder ( tree ->left );
     postorder ( tree ->right );
-    cout<<tree->data<<"  ";
+    cout << tree->data << "  ";
 }

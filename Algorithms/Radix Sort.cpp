@@ -10,7 +10,7 @@ void countSort(int arr[], int n, int exp)
 		count[(arr[i] / exp) % 10]++;
 
 	for (i = 1; i < 10; i++)
-		count[i] += count[i-1];
+		count[i] += count[i - 1];
 
 	for (i = n - 1; i >= 0; i--)
 	{
@@ -25,29 +25,29 @@ void countSort(int arr[], int n, int exp)
 void radixsort(int arr[], int n)
 {
 	int exp, m;
-	m = *max_element(arr, arr+n);
+	m = *max_element(arr, arr + n);
 
-	for (exp = 1; m/exp > 0; exp *= 10)
+	for (exp = 1; m / exp > 0; exp *= 10)
 		countSort(arr, n, exp);
 }
 
 int main()
 {
 	int n, i;
-	cout<<"Enter the number of elements: ";
-	cin>>n;
-	cout<<"Enter the elements of array: ";
+	cout << "Enter the number of elements: ";
+	cin >> n;
+	cout << "Enter the elements of array: ";
 
 	int arr[n];
-	for(i = 0; i < n; i++)
+	for (i = 0; i < n; i++)
 	{
-		cin>>arr[i];
+		cin >> arr[i];
 	}
 
 	radixsort(arr, n);
 
-	cout<<"\nSorted Data: ";
+	cout << "\nSorted Data: ";
 	for (i = 0; i < n; i++)
-		cout<<arr[i]<<" ";
+		cout << arr[i] << " ";
 	return 0;
 }

@@ -4,12 +4,12 @@ int sum;
 
 bool equ(int arr[], int n)
 {
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
         sum += arr[i];
     int lsum = 0;
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        if(lsum == sum - arr[i])
+        if (lsum == sum - arr[i])
             return true;
         lsum += arr[i];
         sum -= arr[i];
@@ -19,11 +19,11 @@ bool equ(int arr[], int n)
 
 int main()
 {
-    int arr[] = {4,2,2};
+    int arr[] = {4, 2, 2};
     int n = 3;
-    if(equ(arr, n))
-        cout<<"YES";
+    if (equ(arr, n))
+        cout << "YES";
     else
-        cout<<"NO";
+        cout << "NO";
     return 1;
 }

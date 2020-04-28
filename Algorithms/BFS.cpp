@@ -12,71 +12,71 @@ int dequeue();
 
 void bfs(int Adj[][MAX], int n, int source);
 
-int main() 
+int main()
 {
-  int Adj[][MAX] = 
+  int Adj[][MAX] =
   {
-    {0,1,1,0},
-    {1,0,0,0},
-    {1,0,0,1},
-    {0,0,1,0}
+    {0, 1, 1, 0},
+    {1, 0, 0, 0},
+    {1, 0, 0, 1},
+    {0, 0, 1, 0}
   };
-  
-  int n = 4;  
+
+  int n = 4;
   int starting_vertex = 0;
-  cout<<"BFS Traversal: ";
-  
+  cout << "BFS Traversal: ";
+
   bfs(Adj, n, starting_vertex);
-  
+
   return 0;
 }
 
-void bfs(int Adj[][MAX], int n, int source) 
+void bfs(int Adj[][MAX], int n, int source)
 {
   int i, j;
   int visited[MAX];
 
-  
+
   queue_front = 0;
   queue_end = 0;
-  
-  for(i = 0; i < MAX; i++) 
+
+  for (i = 0; i < MAX; i++)
   {
     visited[i] = 0;
   }
-  
+
   visited[source] = 1;
-  
+
   enqueue(source);
-  
-  cout<<source<<" ";
-  
-  while(queue_front <= queue_end) 
+
+  cout << source << " ";
+
+  while (queue_front <= queue_end)
   {
     i = dequeue();
-    
-    for(j = 0; j < n; j++) 
-	{
-      if(visited[j] == 0 && Adj[i][j] == 1) 
-	  {
+
+    for (j = 0; j < n; j++)
+    {
+      if (visited[j] == 0 && Adj[i][j] == 1)
+      {
         visited[j] = 1;
-        
+
         enqueue(j);
-        
-        cout<<j<<" ";
+
+        cout << j << " ";
       }
     }
   }
-  cout<<endl;
+  cout << endl;
 }
 
-void enqueue(int v) 
+void enqueue(int v)
 {
   queue[queue_end] = v;
   queue_end++;
 }
 
-int dequeue() 
+int dequeue()
 {
   int index = queue_front;
   queue_front++;

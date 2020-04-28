@@ -23,24 +23,24 @@ void floyds(int b[][x])
     }
     for (i = 0; i < x; i++)
     {
-        cout<<"\nMinimum Cost With Respect to Node:"<<i<<endl;
+        cout << "\nMinimum Cost With Respect to Node:" << i << endl;
         for (j = 0; j < x; j++)
         {
-            cout<<b[i][j]<<"\t";
+            cout << b[i][j] << "\t";
         }
- 
+
     }
 }
 int main()
 {
-	int b[x][x];
-    cout<<"ENTER VALUES OF ADJACENCY MATRIX\n\n";
+    int b[x][x];
+    cout << "ENTER VALUES OF ADJACENCY MATRIX\n\n";
     for (int i = 0; i < x; i++)
     {
-        cout<<"enter values for "<<(i+1)<<" row"<<endl;
+        cout << "enter values for " << (i + 1) << " row" << endl;
         for (int j = 0; j < x; j++)
         {
-            cin>>b[i][j];
+            cin >> b[i][j];
         }
     }
     floyds(b);

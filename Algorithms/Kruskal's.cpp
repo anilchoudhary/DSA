@@ -3,10 +3,10 @@ using namespace std;
 
 class Edge
 {
-	public:
-		int source;
-		int dest;
-		int weight;
+public:
+	int source;
+	int dest;
+	int weight;
 };
 
 bool compare(Edge e1, Edge e2)
@@ -16,7 +16,7 @@ bool compare(Edge e1, Edge e2)
 
 int findParent(int v, int* Parent)
 {
-	if(Parent[v]==v)
+	if (Parent[v] == v)
 		return v;
 	else
 		return findParent(Parent[v], Parent);
@@ -24,26 +24,26 @@ int findParent(int v, int* Parent)
 
 void kruskals(Edge* input, int n, int E)
 {
-	sort(input, input+E, compare);
-	
-	Edge* output = new Edge[n-1];
-	
+	sort(input, input + E, compare);
+
+	Edge* output = new Edge[n - 1];
+
 	int* parent = new int[n];
-	for(int i=0;i < n;i++)
+	for (int i = 0; i < n; i++)
 	{
-		parent[i]=i;
+		parent[i] = i;
 	}
-	
-	int count=0;
-	int i=0;
-	while(count != (n-1))
+
+	int count = 0;
+	int i = 0;
+	while (count != (n - 1))
 	{
 		Edge currentEdge = input[i];
-		
+
 		int sourceParent = findParent(currentEdge.source, parent);
 		int destParent = findParent(currentEdge.dest, parent);
-		
-		if(sourceParent != destParent)
+
+		if (sourceParent != destParent)
 		{
 			output[count] = currentEdge;
 			count++;
@@ -51,31 +51,31 @@ void kruskals(Edge* input, int n, int E)
 		}
 		i++;
 	}
-	
-	cout<<"\n\nMST of given graph: \n";
-	
-	for(int i=0; i<n-1;i++)
-	{	
-		if(output[i].source < output[i].dest)
-			cout<< output[i].source <<" " <<output[i].dest<<" "<<output[i].weight<<endl;
+
+	cout << "\n\nMST of given graph: \n";
+
+	for (int i = 0; i < n - 1; i++)
+	{
+		if (output[i].source < output[i].dest)
+			cout << output[i].source << " " << output[i].dest << " " << output[i].weight << endl;
 		else
-			cout<< output[i].dest <<" " <<output[i].source<<" "<<output[i].weight<<endl;
-	
+			cout << output[i].dest << " " << output[i].source << " " << output[i].weight << endl;
+
 	}
-	
+
 }
 
 int main()
 {
-	int n,E;
-	cout<<"Enter the number of nodes and edges: ";
-	cin>>n>>E;
+	int n, E;
+	cout << "Enter the number of nodes and edges: ";
+	cin >> n >> E;
 	Edge* input = new Edge[E];
-	
-	for(int i=0;i<E;i++)
+
+	for (int i = 0; i < E; i++)
 	{
-		int s,d,w;
-		cin>>s>>d>>w;
+		int s, d, w;
+		cin >> s >> d >> w;
 		input[i].source = s;
 		input[i].dest = d;
 		input[i].weight = w;

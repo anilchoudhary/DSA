@@ -5,52 +5,51 @@ using namespace std;
 
 int main()
 {
-    int search(int [],int,int);
-    int n,i,a[100],e,res;
-    cout<<"How Many Elements: ";
-    cin>>n;
-    cout<<"\nEnter Elements of Array: \n";
+    int search(int [], int, int);
+    int n, i, a[100], e, res;
+    cout << "How Many Elements: ";
+    cin >> n;
+    cout << "\nEnter Elements of Array: \n";
 
-    for(i=0;i<n;++i)
+    for (i = 0; i < n; ++i)
     {
-        cin>>a[i];
+        cin >> a[i];
     }
-    sort(a,a+n);
-    
-    cout<<"\nArray after sorting: "<<endl;
-    for(int i=0;i<n;i++)
-    	cout<<a[i]<<" ";
-    cout<<endl;
+    sort(a, a + n);
 
-    cout<<"\nEnter element to search: ";
-    cin>>e;
+    cout << "\nArray after sorting: " << endl;
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
+    cout << endl;
 
-    res=search(a,n,e);
+    cout << "\nEnter element to search: ";
+    cin >> e;
 
-    if(res!=-1)
-        cout<<"\nElement found at position: "<<res+1;
+    res = search(a, n, e);
+
+    if (res != -1)
+        cout << "\nElement found at position: " << res + 1;
     else
-        cout<<"\nElement is not found....!!!";
+        cout << "\nElement is not found....!!!";
 
     return 0;
 }
 
-int search(int a[],int n,int e)
+int search(int a[], int n, int e)
 {
-    int f,l,m;
-    f=0;
-    l=n-1;
+    int f, l, m;
+    f = 0;
+    l = n - 1;
 
-    while(f<=l)
+    while (f <= l)
     {
-        m=(f+l)/2;
-        if(e==a[m])
-            return(m);
+        m = (f + l) / 2;
+        if (e == a[m])
+            return (m);
+        else if (e > a[m])
+            f = m + 1;
         else
-            if(e>a[m])
-                f=m+1;
-            else
-                l=m-1;
+            l = m - 1;
     }
 
     return -1;

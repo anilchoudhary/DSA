@@ -16,7 +16,7 @@ int findSplit(int arr[], int n)
 	for (i = 1; i < n; i++)
 		S += arr[i];
 
-	if(S % 3 != 0)
+	if (S % 3 != 0)
 		return 0;
 
 	int S1 = S / 3;
@@ -29,7 +29,7 @@ int findSplit(int arr[], int n)
 		if (preSum % S1 == 0 && ind1 == -1)
 			ind1 = i;
 
-		else if(preSum % S2 == 0)
+		else if (preSum % S2 == 0)
 		{
 			ind2 = i;
 
@@ -39,7 +39,7 @@ int findSplit(int arr[], int n)
 
 	if (ind1 != -1 && ind2 != -1)
 	{
-		cout << "(" << ind1 << ", "<< ind2 << ")";
+		cout << "(" << ind1 << ", " << ind2 << ")";
 		return 1;
 	}
 
