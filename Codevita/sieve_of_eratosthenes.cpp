@@ -3,14 +3,14 @@ using namespace std;
 
 void prime_sieve(int *p)
 {
-    for(int i = 3;i<=10000;i +=2)
+    for (int i = 3; i <= 10000; i += 2)
         p[i] = 1;
 
-    for(long long int i =3; i<= 10000;i += 2)
+    for (long long int i = 3; i <= 10000; i += 2)
     {
-        if(p[i]==1)
+        if (p[i] == 1)
         {
-            for(long long int j = i*i;j<=10000;j += i)
+            for (long long int j = i * i; j <= 10000; j += i)
                 p[j] = 0;
         }
     }
@@ -21,13 +21,13 @@ void prime_sieve(int *p)
 int main()
 {
     int n;
-    cin>>n;
+    cin >> n;
     int p[100000] = {0};
     prime_sieve(p);
-    for(int i=0;i<=n;i++)
+    for (int i = 0; i <= n; i++)
     {
-        if(p[i] == 1)
-            cout<<i<<" ";
+        if (p[i] == 1)
+            cout << i << " ";
     }
     return 0;
 }

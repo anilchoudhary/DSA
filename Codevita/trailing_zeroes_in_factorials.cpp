@@ -5,9 +5,9 @@ int tz(int n)
 {
     int ans = 0;
     int p = 5;
-    while((n/p)>0)
+    while ((n / p) > 0)
     {
-        ans += n/p;
+        ans += n / p;
         p *= 5;
     }
     return ans;
@@ -16,7 +16,7 @@ int tz(int n)
 int main()
 {
     int n;
-    cin>>n;
-    cout<<tz(n);
+    cin >> n;
+    cout << tz(n);
     return 0;
 }
