@@ -27,16 +27,16 @@ int main()
         pos.push_back(p(n, 0));
 
 
-        long long int ans = (n * (n + 1))/2;
+        long long int ans = (n * (n + 1)) / 2;
         int len = pos.size();
-        for (int i = 1; i < len-1 ; i++)
+        for (int i = 1; i < len - 1 ; i++)
         {
             if (pos[i].second == 0) continue;
             long long int tmp = (pos[i].first - pos[i - 1].first);
             tmp *= (pos[i + 1].first - pos[i].first);
             ans -= tmp;
         }
-        cout << ans <<endl;
+        cout << ans << endl;
     }
 
     return 0;

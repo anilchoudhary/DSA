@@ -8,7 +8,7 @@ int countpf(int n)
     while (n % 2 == 0)
     {
         arr.push_back(2);
-        n = n/2;
+        n = n / 2;
     }
 
     // n must be odd at this point. So we can skip
@@ -19,7 +19,7 @@ int countpf(int n)
         while (n % i == 0)
         {
             arr.push_back(i);
-            n = n/i;
+            n = n / i;
         }
     }
 
@@ -34,21 +34,21 @@ int countpf(int n)
 int main()
 {
     int t;
-    cin>>t;
-    while(t--)
+    cin >> t;
+    while (t--)
     {
-        int x,k,l,flag=0;
-        cin>>x>>k;
+        int x, k, l, flag = 0;
+        cin >> x >> k;
 
         l = countpf(x);
 
-        if(l>=k)
+        if (l >= k)
             flag = 1;
 
-        if(flag)
-            cout<<"1"<<endl;
+        if (flag)
+            cout << "1" << endl;
         else
-            cout<<"0"<<endl;
+            cout << "0" << endl;
         flag = 0;
     }
     return 0;
