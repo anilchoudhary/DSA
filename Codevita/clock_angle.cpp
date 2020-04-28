@@ -4,17 +4,17 @@ using namespace std;
 // Utility function to find minimum of two integers
 int min(int x, int y)
 {
-    return (x < y)? x: y;
+    return (x < y) ? x : y;
 
 }
 
 float calcAngle(double h, double m)
 {
     // validate the input
-    if (h <0 || m < 0 || h >12 || m > 60)
-       // printf("Wrong input");
+    if (h < 0 || m < 0 || h > 12 || m > 60)
+        // printf("Wrong input");
 
-    if (h == 12) h = 0;
+        if (h == 12) h = 0;
     if (m == 60) m = 0;
 
     // Calculate the angles moved
@@ -37,18 +37,18 @@ int main()
 {
     float h;
     float l;
-    cin>>h>>l;
+    cin >> h >> l;
 
     float t;
     int ti;
-    t = (h/360)*l;
+    t = (h / 360) * l;
     ti = t;
-   // cout<<t<<endl;
-   // cout<<ti;
-    float m = t-ti;
+    // cout<<t<<endl;
+    // cout<<ti;
+    float m = t - ti;
     m *= 60;
-    cout<<ti<<" " <<m<<endl;
-	cout <<fixed<<setprecision(2)<< calcAngle(ti, m);
+    cout << ti << " " << m << endl;
+    cout << fixed << setprecision(2) << calcAngle(ti, m);
 
-	return 0;
+    return 0;
 }
