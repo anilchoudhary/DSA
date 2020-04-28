@@ -4,18 +4,18 @@ using namespace std;
 int main()
 {
 	int t;
-	cin>>t;
-	while(t--)
+	cin >> t;
+	while (t--)
 	{
-		int n,nn,k,count=0;
-		cin>>n>>k;
+		int n, nn, k, count = 0;
+		cin >> n >> k;
 //		n = nn;
 		int arr[n];
-		for(int i=0;i<n;i++)
+		for (int i = 0; i < n; i++)
 		{
 			char tmp;
-			cin>>tmp;
-			if(tmp == 'H' )
+			cin >> tmp;
+			if (tmp == 'H' )
 				arr[i] = 1;
 			else
 				arr[i] = -1;
@@ -23,12 +23,12 @@ int main()
 //		for(int i =0;i<n;i++)
 //			cout<<endl<<arr[i]<<" ";
 //		cout<<endl;
-		for(int i = 0;i<k;i++)
+		for (int i = 0; i < k; i++)
 		{
-			if(arr[n-1] == 1)
+			if (arr[n - 1] == 1)
 			{
 				n -= 1;
-				for(int j=0; j<n; j++)
+				for (int j = 0; j < n; j++)
 				{
 					arr[j] *= -1;
 				}
@@ -43,11 +43,11 @@ int main()
 //		for(int i =0;i<n;i++)
 //			cout<<endl<<arr[i]<<" ";
 //		cout<<endl;
-		for(int i=0;i<n;i++)
+		for (int i = 0; i < n; i++)
 		{
-			if(arr[i] == 1)
+			if (arr[i] == 1)
 				count++;
 		}
-		cout<<count<<endl;
+		cout << count << endl;
 	}
 }
