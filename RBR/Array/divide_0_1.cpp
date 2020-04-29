@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-	int arr[] = {0,1,0,0,1,0,1,0,1};
+	int arr[] = {0, 1, 0, 0, 1, 0, 1, 0, 1};
 	int l, h;
 	l = 0; h = 8;
 	while (l < h)
