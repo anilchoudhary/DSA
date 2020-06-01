@@ -1,3 +1,0 @@
-Bob 99
-Alice 86
-Suzy 86
