@@ -18,20 +18,6 @@ struct LinkedList {
 		head = NULL;
 	}
 
-	void reverse()
-	{
-		Node* current = head;
-		Node *prev = NULL, *next = NULL;
-
-		while (current != NULL) {
-			next = current->next;
-			current->next = prev;
-			prev = current;
-			current = next;
-		}
-		head = prev;
-	}
-
 	void print()
 	{
 		struct Node* temp = head;
@@ -47,11 +33,26 @@ struct LinkedList {
 		temp->next = head;
 		head = temp;
 	}
+
+	int middle()
+	{
+		Node *slow, *fast;
+		slow = head;
+		fast = head;
+		while (fast && fast->next)
+		{
+			slow = slow -> next;
+			fast = fast -> next -> next;
+		}
+		return slow->data;
+	}
+
 };
 
 int main()
 {
 	LinkedList ll;
+	ll.push(5);
 	ll.push(4);
 	ll.push(3);
 	ll.push(2);
@@ -60,9 +61,6 @@ int main()
 	cout << "Given linked list\n";
 	ll.print();
 
-	ll.reverse();
-
-	cout << "\nReversed Linked list \n";
-	ll.print();
+	cout << endl << "Middle element: " << ll.middle();
 	return 0;
 }
