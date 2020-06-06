@@ -3,10 +3,10 @@ using namespace std;
 
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
 	int t;
 	cin >> t;
 	while (t--)
@@ -20,7 +20,7 @@ int main()
 			if (arr[i] > k)
 				sum += arr[i] - k;
 		}
-		cout << sum << endl;;
+		cout << sum << endl;
 	}
 	return 0;
 }

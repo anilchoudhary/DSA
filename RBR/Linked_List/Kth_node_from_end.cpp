@@ -18,18 +18,20 @@ struct LinkedList {
 		head = NULL;
 	}
 
-	void reverse()
+	void KthNodeFromEnd(int k)
 	{
-		Node* current = head;
-		Node *prev = NULL, *next = NULL;
-
-		while (current != NULL) {
-			next = current->next;
-			current->next = prev;
-			prev = current;
-			current = next;
+		Node *p, *q;
+		p = q = head;
+		for (int i = 1; i < k && p; i++)
+			p = p -> next;
+		if (p == NULL)
+			cout << "nothing here.";
+		while (p-> next)
+		{
+			q = q->next;
+			p = p->next;
 		}
-		head = prev;
+		cout << "here is our data " << q -> data;
 	}
 
 	void print()
@@ -51,18 +53,25 @@ struct LinkedList {
 
 int main()
 {
+
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("outpu.txt", "w", stdout);
+#endif
+
 	LinkedList ll;
-	ll.push(4);
-	ll.push(3);
-	ll.push(2);
-	ll.push(1);
+	ll.push(51);
+	ll.push(43);
+	ll.push(37);
+	ll.push(32);
+	ll.push(19);
 
 	cout << "Given linked list\n";
 	ll.print();
+	int k;
+	cin >> k;
+	cout << endl;
+	ll.KthNodeFromEnd(k);
 
-	ll.reverse();
-
-	cout << "\nReversed Linked list \n";
-	ll.print();
 	return 0;
 }
