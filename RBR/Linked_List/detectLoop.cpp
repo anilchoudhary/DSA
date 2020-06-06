@@ -18,30 +18,22 @@ struct LinkedList {
 		head = NULL;
 	}
 
-	void KthNodeFromEnd(int k)
+	void detectLoop()
 	{
-		if (k <= 0 || !head)
+		Node *slow, *fast;
+		slow = fast = head;
+		for (; slow && fast && fast -> next ;)
 		{
-			cout << "Please give valid input";
-			return;
-		}
-		Node *p, *q;
-		p = q = head;
-		for (int i = 0; i < k ; i++)
-		{
-			if (!p)
+			slow = slow -> next;
+			fast = fast -> next -> next;
+			if (slow == fast)
 			{
-				cout << "nothing here";
+				cout << "loop detected.";
 				return;
 			}
-			p = p -> next;
 		}
-		while (p)
-		{
-			q = q->next;
-			p = p->next;
-		}
-		cout << "here is our data " << q -> data;
+		cout << "NO loop.";
+		return ;
 	}
 
 	void print()
@@ -78,10 +70,8 @@ int main()
 
 	cout << "Given linked list\n";
 	ll.print();
-	int k;
-	cin >> k;
 	cout << endl;
-	ll.KthNodeFromEnd(k);
+	ll.detectLoop();
 
 	return 0;
 }
