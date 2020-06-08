@@ -1,3 +1,0 @@
-Given linked list
-19yo 32yo 37yo 43yo 51yo 
-No Loop detected
