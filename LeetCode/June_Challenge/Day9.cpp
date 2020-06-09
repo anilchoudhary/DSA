@@ -9,5 +9,4 @@ public:
 		}
 		return (x == s.size());
 	}
-
 };
