@@ -22,7 +22,7 @@ int main ()
 {
 	int arr[] = {10, 5, 3, 4, 3, 5, 6};
 	int n = sizeof(arr) / sizeof(arr[0]);
-	if (checkDuplicatesWithinK(arr, n, 1))
+	if (checkDuplicatesWithinK(arr, n, 8))
 		cout << "Yes" << endl;
 	else
 		cout << "No" << endl;
