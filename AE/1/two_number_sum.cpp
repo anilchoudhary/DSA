@@ -1,6 +1,9 @@
 #include"bits/stdc++.h"
 using namespace std;
 
+// time complexity: O(n)
+// space complexity: O(n)
+
 int main()
 {
 	int arr[] = { 3, 5, -4, 5, 11, 1, -1, 7};
