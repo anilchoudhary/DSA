@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void selection_sort(int a[], int n)
+void selection_sort(int *a, int n)
 {
 	int i, j, loc, temp, min;
 
@@ -17,17 +17,9 @@ void selection_sort(int a[], int n)
 				loc = j;
 			}
 		}
-
-		temp = a[i];
-		a[i] = a[loc];
-		a[loc] = temp;
+		swap(a[i], a[loc]);
 	}
 
-	cout << "\nSorted list is as follows\n";
-	for (i = 0; i < n; i++)
-	{
-		cout << a[i] << " ";
-	}
 }
 
 int main()
@@ -35,4 +27,11 @@ int main()
 	int arr[] = { 141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7};
 	int n = sizeof(arr) / sizeof(arr[0]);
 	selection_sort(arr, n);
+
+	cout << "\nSorted list is as follows\n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	return 0;
 }
