@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void selection_sort(int *a, int n)
+void selection_sort(int a[], int n)
 {
 	int i, j, loc, temp, min;
 

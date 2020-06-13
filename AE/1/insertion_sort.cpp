@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-void insertion_sort(int *arr, int n)
+void insertion_sort(int arr[], int n)
 {
 	int j = 0, temp;
 	for (int i = 1; i < n; i++)
