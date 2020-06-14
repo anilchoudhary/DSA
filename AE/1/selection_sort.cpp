@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Time Complexity = O(n^2)
+// Space Complexity = O(1)
+
 void selection_sort(int a[], int n)
 {
 	int i, j, loc, temp, min;

@@ -1,6 +1,9 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+// Time Complexity = O(n^2)
+// Space Complexity = O(1)
+
 void insertion_sort(int arr[], int n)
 {
 	int j = 0, temp;

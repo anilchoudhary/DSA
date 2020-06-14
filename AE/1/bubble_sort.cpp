@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Time Complexity = O(n^2)
+// Space Complexity = O(1)
+
 void bubble_sort(int arr[], int n)
 {
 	int flag = 0;
@@ -18,12 +21,6 @@ void bubble_sort(int arr[], int n)
 		if (flag)
 			break;
 	}
-	// cout << "\nSorted list is as follows\n";
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	cout << arr[i] << " ";
-	// }
-
 }
 
 int main()
