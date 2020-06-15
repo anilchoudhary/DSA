@@ -9,44 +9,68 @@ int32_t main()
 	freopen("output.txt", "w", stdout);
 	#endif
 	*/
+
 	int t;
 	cin >> t;
 	while (t--)
 	{
 		int n, p;
 		cin >> n >> p;
-		int x = 0;
-		vector<vector<int>> mat(n + 1, vector<int>(n + 1, 0));
-		int row1 = 1, row2 = n, col1 = 1, col2 = n;
-		for (int i = row1; i <= row2; i++) {
-			for (int j = col1; j <= col2; j++) {
-				cout << "1 " << i << " " << j << " " << i << " " << j << endl;
-				cout.flush();
-				int x2;
-				cin >> x2;
-				if (x2 == -1)
-				{
-					exit;
-				}
-				mat[i][j] = x2;
+		vector<vector<int>> mat, mat2;
+		for (int i = 0; i < n; i++)
+		{
+			vector<int> row(n);
+			mat.push_back(row);
+			mat2.push_back(row);
+		}
+
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				cout << "1 1 1 " << (i + 1) << " " << (j + 1) << "\n";
+				int x;
+				cin >> x;
+				mat2[i][j] = x;
+				if (i == 0 && j == 0)
+					mat[i][j] = x;
 			}
 		}
-		cout << "2" << endl;
-		for (int i = 1; i <= n; i++)
+
+
+		for (int i = 0; i < n; i++)
 		{
-			for (int j = 1; j <= n; j++)
+			for (int j = 0; j < n; j++)
+			{
+				if (i == 0 && j > 0)
+				{
+					mat[i][j] = mat2[i][j] - mat2[i][j - 1];
+				}
+				else if (j == 0 && i > 0)
+				{
+					mat[i][j] = mat2[i][j] - mat2[i - 1][j];
+				}
+				else if (i > 0 && j > 0)
+				{
+					mat[i][j] = mat2[i][j] - mat2[i - 1][j] - mat2[i][j - 1] + mat2[i - 1][j - 1];
+				}
+			}
+		}
+
+		cout << "2" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			vector<int> row = mat[i];
+			for (int j = 0; j < n; j++)
 			{
 				cout << mat[i][j] << " ";
-				cout.flush();
 			}
 			cout << endl;
 		}
+		int x;
 		cin >> x;
 		if (x == -1)
-		{
-			exit;
-		}
-		else if (x == 1) continue;
+			return 0;
 	}
 	return 0;
 }
