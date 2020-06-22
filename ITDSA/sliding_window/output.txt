@@ -1,2 +1,2 @@
-Average of subarrays of size K
-2.2 2.8 2.4 3.6 2.8 
+Maximum sum of a subarray of size K: 9
+Maximum sum of a subarray of size K: 7
