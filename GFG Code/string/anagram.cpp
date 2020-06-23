@@ -3,32 +3,32 @@ using namespace std;
 
 int main()
 {
-    string s1,s2;
+    string s1, s2;
     s1 = "gfgf";
-    s2 = "ggfg";
+    s2 = "ggff";
 
-    int n= s1.length();
+    int n = s1.length();
     int m = s2.length();
 
-    if(n!=m)
+    if (n != m)
     {
-        cout<<"no"<<endl;
+        cout << "no" << endl;
         return 0;
     }
-    int ch[256]={0};
-    for(int i=0;i<n;i++)
+    int ch[256] = {0};
+    for (int i = 0; i < n; i++)
     {
         ch[s1[i]]++;
         ch[s2[i]]--;
     }
-    for(int i=0;i<256;i++)
+    for (int i = 0; i < 256; i++)
     {
-        if(ch[i]!=0)
+        if (ch[i] != 0)
         {
-            cout<<"no"<<endl;
+            cout << "no" << endl;
             return 0;
         }
     }
-    cout<<"yes"<<endl;
+    cout << "yes" << endl;
     return 0;
 }
