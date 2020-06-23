@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     int n = 6;
-    int x = 21;
+    int x = 26;
     int arr[n] = {5, 1, -4, 3, 8, 10};
     int presum = 0;
     unordered_set <int> us;
