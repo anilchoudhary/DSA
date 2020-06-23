@@ -3,23 +3,22 @@ using namespace std;
 
 int main()
 {
-    int n=6;
-    int x=11;
-    int arr[n]={5,6,-4,3,8,10};
+    int n = 6;
+    int arr[n] = {5, 1, -4, 3, 8, 10};
     int presum = 0;
     unordered_set <int> us;
     us.insert(0);
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
         presum += arr[i];
-        if(us.find(presum-x)!=us.end())
-            {
-                cout<<"yes"<<endl;
-                return 0;
-            }
-            us.insert(presum);
+        if (us.find(presum) != us.end())
+        {
+            cout << "yes" << endl;
+            return 0;
+        }
+        us.insert(presum);
     }
-    cout<<"no"<<endl;
+    cout << "no" << endl;
 
     return 0;
 }
