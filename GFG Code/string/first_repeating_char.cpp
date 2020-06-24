@@ -39,7 +39,7 @@ using namespace std;
 // 	return p;
 // }
 
-int findRepeatFirst(string str)
+void findRepeatFirst(string str)
 {
 	unordered_map <char, int> freq;
 	unordered_map <char, int> pos;
@@ -60,18 +60,13 @@ int findRepeatFirst(string str)
 		}
 	}
 	cout << ans << endl;
-	return 0;
 
 }
 
 int main()
 {
 	char str[] = "geeksforgeeks";
-	int pos = findRepeatFirst(str);
-	// if (pos == -1)
-	// 	cout << "Not found";
-	// else
-	// 	cout << str[pos] << endl;
+	findRepeatFirst(str);
 	return 0;
 }
 

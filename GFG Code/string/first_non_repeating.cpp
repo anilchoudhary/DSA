@@ -3,7 +3,7 @@
 using namespace std;
 #define MAX_CHAR 256
 
-int findRepeatFirst(string str)
+void findRepeatFirst(string str)
 {
 	// int p = -1, i, k;
 
@@ -44,17 +44,12 @@ int findRepeatFirst(string str)
 			min_index	= min(min_index , arr[i].second);
 	}
 	cout << str[min_index] << endl;
-	return 0;
 }
 
 int main()
 {
-	char str[] = "geeksforgeek";
-	int pos = findRepeatFirst(str);
-	// if (pos == -1)
-	// 	cout << "Not found";
-	// else
-	// 	cout << str[pos];
+	char str[] = "geeksforgeeks";
+	findRepeatFirst(str);
 	return 0;
 }
 
