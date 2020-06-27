@@ -3,8 +3,8 @@ using namespace std;
 
 int main()
 {
-	string X = "abcaf";
-	string Y = "acbcf";
+	string X = "abdcbd";
+	string Y = "aabbcfd";
 	int m = X.length();
 	int n = Y.length();
 	int dp[m + 1][n + 1];
@@ -22,6 +22,6 @@ int main()
 		}
 		// cout << endl;
 	}
-	cout << dp[m][n] << endl;
+	cout << "Length of LCS: " << dp[m][n] << endl;
 	return 0;
 }
