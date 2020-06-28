@@ -33,7 +33,6 @@ int32_t main()
 		}
 		if (r_revenue >= revenue)
 		{
-
 			cout << k << endl;
 			break;
 		}
