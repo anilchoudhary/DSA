@@ -3,7 +3,8 @@ using namespace std;
 
 int main()
 {
-	int arr[2] = {3, 3};
-	cout << arr[0] << " " << arr[1];
+	float a = 1.7;
+	printf("%f\n", a + a + a);
+	printf("%f\n", 3 * a);
 	return 0;
 }
