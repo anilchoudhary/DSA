@@ -16,7 +16,7 @@ void toh(int n, char s = 's', char a = 'a', char d = 'd')
 
 int main()
 {
-	int n = 3;
+	int n = 4;
 	toh(n);
 	return 0;
 }
