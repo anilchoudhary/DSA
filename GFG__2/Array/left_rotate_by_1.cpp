@@ -5,11 +5,12 @@ int main()
 {
 	int arr[] = {20, 10, 20, 8, 65, 98, 12};
 	int n = sizeof(arr) / sizeof(arr[0]);
-	int j = n - 1, i = 0;
-	while (i < j)
+	int first = arr[0];
+	for (int i = 1; i < n; i++)
 	{
-		swap(arr[i], arr[j]);
-		i++; j--;
+		arr[i - 1] = arr[i];
+		if (i == n - 1)
+			arr[i] = first;
 	}
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
