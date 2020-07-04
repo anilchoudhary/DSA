@@ -10,13 +10,13 @@ void toh(int n, char s = 's', char a = 'a', char d = 'd')
 	}
 	toh(n - 1, s, d, a);
 	cout << "move " << n << " from " << s << " to " << d << endl;
-	toh(n - 1, s, a, d);
+	toh(n - 1, a, s, d);
 
 }
 
 int main()
 {
-	int n = 4;
+	int n = 3;
 	toh(n);
 	return 0;
 }
