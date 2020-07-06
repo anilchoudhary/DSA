@@ -20,9 +20,6 @@ void merge(int arr[], int brr[], int n, int m)
 		}
 	}
 
-
-
-
 	while (i < n)
 	{
 		a[k++] = arr[i++];

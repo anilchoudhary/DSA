@@ -5,45 +5,50 @@ void merge(int arr[], int s, int m, int e)
 {
 	int n1 = m - s + 1;
 	int n2 = e - m;
-	int arr1[n1 + 1],  arr2[n2 + 1];
-	arr1[n1] = arr2[n2] = INT_MAX;
+	int arr1[n1 ],  arr2[n2 ];
 
-	for (int i = s; i <= m; i++)
+	for (int i = 0; i < n1; i++)
 	{
-		arr1[i] = arr[i];
+		arr1[i] = arr[i + s];
 	}
-	int j = 0;
-	for (int i = m; i <= e; i++)
+	for (int i = 0; i < n2; i++)
 	{
-		arr2[j++] = arr[i];
+		arr2[i] = arr[m + 1 + i];
 	}
-	int i = 0; j = 0;
-	for (int k = s; k <= e; k++)
+	int i = 0, j = 0; int k = s;
+	while (i < n1 && j < n2)
 	{
 		if (arr1[i] > arr2[j])
 		{
-			arr[k] = arr2[j];
+			arr[k++] = arr2[j];
 			j++;
 		}
 		else
 		{
-			arr[k] = arr1[i];
+			arr[k++] = arr1[i];
 			i++;
 		}
+	}
+	while (i < n1)
+	{
+		arr[k++] = arr1[i++];
+	}
+	while (j < n2)
+	{
+		arr[k++] = arr2[j++];
 	}
 
 }
 
 void merge_sort(int arr[], int s, int e)
 {
-	int m = (s + e) / 2;
-	if (m >= s && m <= e)
+	if (e > s)
 	{
+		int m = s + (e - s) / 2;
 		merge_sort(arr, s, m);
 		merge_sort(arr, m + 1, e);
 		merge(arr, s, m, e);
 	}
-
 }
 
 int main()
