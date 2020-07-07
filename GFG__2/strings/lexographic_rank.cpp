@@ -12,8 +12,7 @@ int fact(int n)
 
 int lexRank(string str)
 {
-	int res = 1;
-	int rank = 0;
+	int rank = 1;
 	int n = str.length();
 	int mul = fact(n);
 	int count[MAX_CHAR] = {0};
@@ -28,7 +27,7 @@ int lexRank(string str)
 		for (int j = str[i]; j < MAX_CHAR; j++)
 			count[j]--;
 	}
-	return rank + 1;
+	return rank ;
 }
 
 int main()

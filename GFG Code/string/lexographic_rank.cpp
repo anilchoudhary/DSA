@@ -5,52 +5,35 @@ using namespace std;
 
 int fact(int n)
 {
-	return (n <= 1) ? 1 : n * fact(n - 1);
+	if (n <= 1)
+		return 1;
+	return n * fact(n - 1);
 }
 
-void populateAndIncreaseCount(int* count, char* str)
+int lexRank(string str)
 {
-	int i;
-
-	for (i = 0; str[i]; ++i)
-		++count[str[i]];
-
-	for (i = 1; i < MAX_CHAR; ++i)
+	int rank = 1;
+	int n = str.length();
+	int mul = fact(n);
+	int count[MAX_CHAR] = {0};
+	for (int i = 0; i < n; i++)
+		count[str[i]]++;
+	for (int i = 1; i < MAX_CHAR; i++)
 		count[i] += count[i - 1];
-}
-
-void updatecount(int* count, char ch)
-{
-	int i;
-	for (i = ch; i < MAX_CHAR; ++i)
-		--count[i];
-}
-
-int findRank(char* str)
-{
-	int len = strlen(str);
-	int mul = fact(len);
-	int rank = 1, i;
-
-	int count[MAX_CHAR] = { 0 };
-
-	populateAndIncreaseCount(count, str);
-
-	for (i = 0; i < len; ++i) {
-		mul /= len - i;
-
+	for (int i = 0; i < n; i++)
+	{
+		mul = mul / (n - i);
 		rank += count[str[i] - 1] * mul;
-
-		updatecount(count, str[i]);
+		for (int j = str[i]; j < MAX_CHAR; j++)
+			count[j]--;
 	}
-
 	return rank;
 }
 
 int main()
 {
 	char str[] = "string";
-	cout << findRank(str);
+	cout << lexRank(str) << endl;
 	return 0;
 }
 
