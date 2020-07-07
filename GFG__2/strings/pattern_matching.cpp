@@ -44,7 +44,7 @@ bool is_match(string text, string pattern)
 int main()
 {
 	string text = "geksforgeeks";
-	string pattern = "egek";
+	string pattern = "egeksx";
 	if (is_match(text, pattern))
 		cout << "YES" << endl;
 	else
