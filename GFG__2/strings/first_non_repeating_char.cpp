@@ -29,7 +29,7 @@ int first_repeat(string s1)
 
 int main()
 {
-	string s1 = "geeksforgeeks";
+	string s1 = "geeksforgeforeks";
 	int x = first_repeat(s1);
 	cout << x << endl;
 	return 0;
