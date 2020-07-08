@@ -1,2 +1,30 @@
-0 2
-2 1
+OXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+
+
+O....XXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+XXXXXXXX
+
+
+O.......
+........
+........
+........
+........
+........
+........
+........
+
+
