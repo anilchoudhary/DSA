@@ -3,7 +3,7 @@ using namespace std;
 
 int binary_search(int arr[], int l, int r, int x)
 {
-	if (r > l)
+	if (r >= l)
 	{
 		int m = l + (r - l) / 2;
 		if (arr[m] == x)
@@ -18,7 +18,7 @@ int binary_search(int arr[], int l, int r, int x)
 
 int main()
 {
-	int arr[] = {3, 4, 67, 2, 2, 6, 7, 8, 3, 1, 4, 6, 78, 3, 2, 6};
+	int arr[] = {3, 4, 67, 2, 6};
 	int n = sizeof(arr) / sizeof(arr[0]);
 	sort(arr, arr + n);
 	cout << "Sorted Array: ";
