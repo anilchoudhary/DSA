@@ -113,17 +113,31 @@ node* sorted_insert(node* head, int d)
 	return head;
 }
 
+int middle(node*head)
+{
+	node* hare = head;
+	node* tortoise = head;
+
+	while (hare && hare->next)
+	{
+		hare = hare->next->next;
+		tortoise = tortoise->next;
+	}
+	return tortoise->data;
+}
+
 int main()
 {
 	node* head = NULL;
 	head = insert_end( head , 3);
 	insert_end( head , 5);
-	insert_end( head , 6);
-	insert_end( head , 7);
-	head = insert_at_pos(head, 1, 2);
+	// insert_end( head , 6);
+	// insert_end( head , 7);
+	// head = insert_at_pos(head, 1, 2);
+	// print(head);
+	// head = sorted_insert(head, 4);
 	print(head);
-	head = sorted_insert(head, 4);
-	print(head);
+	cout << middle(head) << endl;
 	return 0;
 }
 
