@@ -93,17 +93,35 @@ node* insert_at_pos(node* head, int i, int d)
 
 }
 
+node* sorted_insert(node* head, int d)
+{
+	node* temp = new node(d);
+
+	if (d < head->data)
+	{
+		temp-> next = head;
+		return temp;
+	}
+	node *cur = head;
+	while (cur->next && d > cur->next->data)
+	{
+		cur = cur->next;
+	}
+	temp->next = cur->next;
+	cur->next = temp;
+	return head;
+}
+
 int main()
 {
 	node* head = NULL;
-	head = insert_end( head , 4);
-	insert_end( head , 7);
-	insert_end( head , 6);
+	head = insert_end( head , 3);
 	insert_end( head , 5);
+	insert_end( head , 6);
+	insert_end( head , 7);
+	head = insert_at_pos(head, 1, 2);
 	print(head);
-	// delete_end(head);
-	// print(head);
-	head = insert_at_pos(head, 1, 9);
+	head = sorted_insert(head, 4);
 	print(head);
 	return 0;
 }
