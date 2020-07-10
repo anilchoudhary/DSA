@@ -70,6 +70,27 @@ node* delete_end(node *head)
 	return head;
 }
 
+node* insert_at_pos(node* head, int i, int d)
+{
+	node* cur = head;
+	node* temp = new node(d);
+	if (i == 1)
+	{
+		temp->next = head;
+		head = temp;
+		return head;
+	}
+	--i;
+	while (--i)
+	{
+		cur = cur->next;
+	}
+	temp->next = cur->next;
+	cur->next = temp;
+	return head;
+
+}
+
 int main()
 {
 	node* head = NULL;
@@ -78,7 +99,9 @@ int main()
 	insert_end( head , 6);
 	insert_end( head , 5);
 	print(head);
-	delete_end(head);
+	// delete_end(head);
+	// print(head);
+	head = insert_at_pos(head, 1, 9);
 	print(head);
 	return 0;
 }
