@@ -12,16 +12,19 @@ struct node
 	}
 };
 
-void insert_begin(node **head, int d)
+node* insert_end(node *head, int d)
 {
-	node* tmp = new node(d);
+	node* temp = new node(d);
 
-	// tmp->data = d;
-	tmp->next = *head;
-
-	*head = tmp;
-	return;
-
+	if (head == NULL)
+		return temp;
+	node* cur = head;
+	while (cur->next)
+	{
+		cur = cur->next;
+	}
+	cur->next = temp;
+	return head;
 }
 
 int main()
@@ -32,10 +35,10 @@ int main()
 	// head->next = temp;
 	// temp->next  = temp2;
 	node* head = NULL;
-	insert_begin( &head , 4);
-	insert_begin( &head , 7);
-	insert_begin( &head , 6);
-	insert_begin( &head , 5);
+	head = insert_end( head , 4);
+	insert_end( head , 7);
+	insert_end( head , 6);
+	insert_end( head , 5);
 	node *cur = head;
 	while (cur)
 	{
