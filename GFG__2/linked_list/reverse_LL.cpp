@@ -145,6 +145,21 @@ int nth_node_end(node *head, int n)
 	return slow->data;
 }
 
+node* reverseLL(node *head)
+{
+	node *cur = head;
+	node *prev = NULL;
+	node *next = NULL;
+	while (cur)
+	{
+		next = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = next;
+	}
+	return prev;
+}
+
 int main()
 {
 	node* head = NULL;
@@ -156,7 +171,9 @@ int main()
 	// print(head);
 	head = sorted_insert(head, 4);
 	print(head);
-	cout << nth_node_end(head, 4) << endl;
+	// cout << nth_node_end(head, 4) << endl;
+	head = reverseLL(head);
+	print(head);
 	// cout << middle(head) << endl;
 	return 0;
 }
