@@ -15,7 +15,7 @@ int32_t main()
 		int xans, yans;
 		xans = x;
 		yans = y;
-		for (int i = 0; i < 4n - 2; i++)
+		for (int i = 0; i < 4 * n - 2; i++)
 		{
 			cin >> x >> y;
 			xans ^= x;
