@@ -7,25 +7,8 @@ int main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int n, m, a;
+	double n, m, a;
 	cin >> n >> m >> a;
-	int count = 0;
-	while (n > a && m > a)
-	{
-		n -= a;
-		m -= a;
-		count++;
-	}
-	while (n > 0)
-	{
-		n -= a;
-		count++;
-	}
-	while (m > 0)
-	{
-		m -= a;
-		count++;
-	}
-	cout << count << endl;
+	cout << (long long) ceil(n / a)* (long long) ceil(m / a) << endl;
 	return 0;
 }
