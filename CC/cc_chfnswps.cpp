@@ -24,5 +24,6 @@ int main()
 		}
 		sort(arr, arr + n, greater<int>);
 		sort(brr, brr + n, greater<int>);
+
 	}
 }
