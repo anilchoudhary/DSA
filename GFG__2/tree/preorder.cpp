@@ -1,5 +1,18 @@
 #include<bits/stdc++.h>
-uisng namespace std;
+using namespace std;
+
+struct node
+{
+	int data;
+	node *left;
+	node *right;
+	node(int d)
+	{
+		this->data = d;
+		left = NULL;
+		right = NULL;
+	}
+};
 
 void preorder(node *root)
 {
