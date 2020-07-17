@@ -68,6 +68,28 @@ public:
 		minheapify(0);
 		return temp;
 	}
+
+	void print()
+	{
+		for (int i = 0; i < size; i++)
+			cout << arr[i] << " ";
+		cout << endl;
+	}
+
+	void decrease_key(int i, int x)
+	{
+		if (i > size)
+		{
+			cout << "enter valid index..." << endl;
+			return ;
+		}
+		arr[i] = x;
+		while (i != 0 && arr[parent_index(i)] > arr[i])
+		{
+			swap(arr[i], arr[parent_index(i)]);
+			i = parent_index(i);
+		}
+	}
 };
 
 int main()
@@ -78,16 +100,13 @@ int main()
 	mmh.insert(39);
 	mmh.insert(31);
 	mmh.insert(23);
-
-	for (int i = 0; i < mmh.size; i++)
-		cout << mmh.arr[i] << " ";
-	cout << endl;
+	mmh.print();
 	cout << mmh.extract_min() << endl;
 	cout << mmh.extract_min() << endl;
 	cout << mmh.extract_min() << endl;
-	cout << mmh.extract_min() << endl;
-	cout << mmh.extract_min() << endl;
-	cout << mmh.extract_min() << endl;
+	mmh.print();
+	mmh.decrease_key(0, 1 );
+	mmh.print();
 
 	return 0;
 
