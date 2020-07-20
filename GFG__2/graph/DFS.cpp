@@ -1,63 +1,54 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Graph
+void addEdge(vector<int> adj[], int u, int v)
 {
-	int V;
-	list<int> *adj;
-	void DFSUtil(int v, bool visited[]);
-public:
-	Graph(int V);
-	void addEdge(int v, int w);
-	void DFS();
-};
-
-Graph::Graph(int V)
-{
-	this->V = V;
-	adj = new list<int>[V];
+	adj[u].push_back(v);
+	adj[v].push_back(u);
 }
 
-void Graph::addEdge(int v, int w)
+void printGraph(vector<int> adj[], int V)
 {
-	adj[v].push_back(w);
+	for (int v = 0; v < V; ++v)
+	{
+		cout << "\n Adjacency list of vertex "
+		     << v << "\n head ";
+		for (auto x : adj[v])
+			cout << "-> " << x;
+		printf("\n");
+	}
 }
 
-void Graph::DFSUtil(int v, bool visited[])
+void dfs_rec(vector<int> adj[], int s, vector<bool> &visited)
 {
-
-	visited[v] = true;
-	cout << v << " ";
-
-	list<int>::iterator i;
-	for (i = adj[v].begin(); i != adj[v].end(); ++i)
-		if (!visited[*i])
-			DFSUtil(*i, visited);
+	visited[s] = 1;
+	cout << s << " ";
+	for (auto x : adj[s])
+	{
+		if (visited[x] == 0 )
+			dfs_rec(adj, x, visited);
+	}
 }
 
-void Graph::DFS()
+void dfs(vector<int> adj[], int v, int s)
 {
-	bool *visited = new bool[V];
-	for (int i = 0; i < V; i++)
-		visited[i] = false;
-
-	for (int i = 0; i < V; i++)
-		if (visited[i] == false)
-			DFSUtil(i, visited);
+	vector<bool> visited(0, v);
+	dfs_rec(adj, s, visited);
 }
+
 
 int main()
 {
-	Graph g(4);
-	g.addEdge(0, 1);
-	g.addEdge(0, 2);
-	g.addEdge(1, 2);
-	g.addEdge(2, 0);
-	g.addEdge(2, 3);
-	g.addEdge(3, 3);
-
-	cout << "Following is Depth First Traversaln";
-	g.DFS();
-
+	int V = 5;
+	vector<int> adj[V];
+	addEdge(adj, 0, 1);
+	addEdge(adj, 0, 4);
+	addEdge(adj, 1, 2);
+	addEdge(adj, 1, 3);
+	addEdge(adj, 1, 4);
+	addEdge(adj, 2, 3);
+	addEdge(adj, 3, 4);
+	// printGraph(adj, V);
+	dfs(adj, V, 2);
 	return 0;
 }
