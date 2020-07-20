@@ -41,9 +41,9 @@ int main()
 	int v = 4;
 	vector<int> adj[v];
 	addEdge(adj, 0, 3);
-	addEdge(adj, 1, 3);
+	addEdge(adj, 3, 1);
 	addEdge(adj, 2, 3);
-	// addEdge(adj, 0, 1);
+	addEdge(adj, 1, 0);
 	// addEdge(adj, 1, 2);
 	dfs(adj, v) ? cout << "yes" : cout << "no";
 	return 0;
