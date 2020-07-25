@@ -1,16 +1,13 @@
-let marks = prompt("Enter your marks:");
+let sales = parseInt(prompt("Enter the sale amount:"));
+let total_commision = 0;
 
-if (marks > 90)
-    console.log("Marks are ", marks, " and grade is A");
-
-else if (marks <= 90 && marks > 75)
-    console.log("Marks are ", marks, " and grade is B");
-
-else if (marks <= 75 && marks > 50)
-    console.log("Marks are ", marks, " and grade is C");
-
-else if (marks <= 50 && marks > 30)
-    console.log("Marks are ", marks, " and grade is D");
-
-else
-    console.log("Marks are ", marks, " and grade is F");
+if (0 <= sales && sales <= 5000) {
+    total_commision = 0.02 * sales;
+} else if (5001 <= sales && sales <= 10000) {
+    total_commision = 0.05 * sales;
+} else if (10001 <= sales && sales <= 20000) {
+    total_commision = 0.07 * sales;
+} else if (20001 <= sales) {
+    total_commision = 0.1 * sales;
+}
+console.log(total_commision);
