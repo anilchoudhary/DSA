@@ -5,7 +5,7 @@ int main()
 {
 	int n;
 	// cin>>n;
-	n = 13;
+	n = 7;
 	int coin1, coin2, coin5, balance;
 	coin5 = (n - 4) / 5;
 	balance = n - (coin5 * 5);
