@@ -11,18 +11,25 @@ int main()
 	cin >> t;
 	while (t--)
 	{
-		int n;
-		int arr[n];
+		priority_queue <int, vector<int>, greater<int>> mh;
+		int total = 0;
+		int n, x;
+		cin >> n;
 		for (int i = 0; i < n; i++)
-			cin >> arr[i];
-		int sum = 0;
-		int bsum = arr[0];
-		for (int i = 1; i < n; i++)
 		{
-			bsum  += arr[i];
-			sum = bsum + arr[i];
-			bsum -= arr[i - 1];
+			cin >> x;
+			mh.push(x);
 		}
-		cout << sum << endl;
+		while (mh.size() > 1)
+		{
+			int t1 = mh.top();
+			mh.pop();
+			int t2 = mh.top();
+			mh.pop();
+			total = total + t1 + t2;
+			mh.push(t1 + t2);
+		}
+		cout << total << endl;
 	}
+	return 0;
 }
