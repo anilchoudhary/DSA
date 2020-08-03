@@ -13,6 +13,11 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		cin >> zom_energy[i];
+		if (!isdigit(zom_energy[i]))
+		{
+			cout << "Invalid Input";
+			return 0;
+		}
 	}
 	// sort(zom_energy, zom_energy + n);
 	for (int i = 0; i < n; i++)
