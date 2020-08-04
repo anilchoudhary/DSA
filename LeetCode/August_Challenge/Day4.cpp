@@ -12,10 +12,7 @@ public:
 	}
 };
 
-/*
-    Without Loop - Using Log property
-    Read more - https://www.geeksforgeeks.org/find-whether-a-given-number-is-a-power-of-4-or-not/
-*/
+
 class Solution {
 	float logn(int n, int r) {
 		return log(n) / log(r);
