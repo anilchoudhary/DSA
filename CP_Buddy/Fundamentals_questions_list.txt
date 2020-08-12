@@ -10,7 +10,7 @@ https://www.hackerrank.com/challenges/write-a-function/problem (done)
 https://www.hackerrank.com/challenges/grading/problem (done)
 https://www.codechef.com/LRNDSA01/problems/FCTRL (done)
 https://www.hackerrank.com/challenges/extra-long-factorials/problem  (done)
-https://www.hackerrank.com/challenges/printing-pattern-2/problem
+https://www.hackerrank.com/challenges/printing-pattern-2/problem 
 
 Hard
 https://www.geeksforgeeks.org/multiply-the-given-number-by-2-such-that-it-is-divisible-by-10/
@@ -18,3 +18,4 @@ https://codeforces.com/contest/50/problem/A
 https://mycode.prepbytes.com/problems/fundamentals/PRIMNUM
 https://codeforces.com/problemset/problem/1249/C1
 https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
+
