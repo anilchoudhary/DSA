@@ -13,7 +13,7 @@ public:
             else
                 lower_counter[s[i] - 'a'] += 1;
         }
-        int even_count = 0, odd_count = 0, max_odd = INT_MIN, odd_char_1 = 0, odd_flag = 0;
+        int even_count = 0, odd_count = 0, odd_flag = 0;
         for (int i = 0; i < 26; i++)
         {
             if (upper_counter[i] != 0)
@@ -39,7 +39,7 @@ public:
                 }
             }
         }
-        int ans = 0;
+        int ans = even_count;
         if (odd_flag)
             ans = even_count + odd_count + 1;
         return ans;
