@@ -1,19 +1,440 @@
 Easy
 https://www.hackerrank.com/challenges/solve-me-first/problem (done)
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int solveMeFirst(int a, int b) {
+ // Hint: Type return a+b; below:
+ return a+b;
+  
+}
+
+int main() {
+  int num1, num2;
+  int sum;
+  cin>>num1>>num2;
+  sum = solveMeFirst(num1,num2);
+  cout<<sum;
+  return 0;
+}
+
+
 https://www.hackerrank.com/challenges/a-very-big-sum/problem (done)
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<string> split_string(string);
+
+// Complete the aVeryBigSum function below.
+long aVeryBigSum(vector<long> ar) {
+long long int sum = 0;
+for(int i=0;i<ar.size();i++)
+{
+    sum += ar[i];
+}
+return sum;
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int ar_count;
+    cin >> ar_count;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    string ar_temp_temp;
+    getline(cin, ar_temp_temp);
+
+    vector<string> ar_temp = split_string(ar_temp_temp);
+
+    vector<long> ar(ar_count);
+
+    for (int i = 0; i < ar_count; i++) {
+        long ar_item = stol(ar_temp[i]);
+
+        ar[i] = ar_item;
+    }
+
+    long result = aVeryBigSum(ar);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
+vector<string> split_string(string input_string) {
+    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
+        return x == y and x == ' ';
+    });
+
+    input_string.erase(new_end, input_string.end());
+
+    while (input_string[input_string.length() - 1] == ' ') {
+        input_string.pop_back();
+    }
+
+    vector<string> splits;
+    char delimiter = ' ';
+
+    size_t i = 0;
+    size_t pos = input_string.find(delimiter);
+
+    while (pos != string::npos) {
+        splits.push_back(input_string.substr(i, pos - i));
+
+        i = pos + 1;
+        pos = input_string.find(delimiter, i);
+    }
+
+    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
+
+    return splits;
+}
+
+
 https://leetcode.com/problems/reverse-integer/ (done)
+
+class Solution {
+public:
+    int reverse(int x) {
+        long long rev = 0;
+        while(abs(x)>0)
+        {
+            int rem = x%10;
+            
+            rev = rev*10 + rem;
+            x /= 10;
+            if(rev >= INT_MAX || rev <= INT_MIN)
+                return 0;
+            
+        }
+        return rev;
+    }
+};
+
 https://www.codechef.com/LRNDSA01/problems/FLOW007 (done)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	 int n;
+	 cin>>n;
+	 int rev = 0;
+	 while(n>0)
+	 {
+	     int rem = n % 10;
+	     rev = rev*10 + rem;
+	     n /= 10;
+	 }
+	 cout<<rev<<endl;
+	}
+	return 0;
+}
+
 
 Medium
 https://www.hackerrank.com/challenges/maximum-draws/problem (done)
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+/*
+ * Complete the maximumDraws function below.
+ */
+int maximumDraws(int n) {
+    /*
+     * Write your code here.
+     */
+     return n+1;
+
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int t;
+    cin >> t;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+        int n;
+        cin >> n;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        int result = maximumDraws(n);
+
+        fout << result << "\n";
+    }
+
+    fout.close();
+
+    return 0;
+}
+
+
 https://www.hackerrank.com/challenges/write-a-function/problem (done)
+
+def is_leap(year):
+    leap = False
+    if year%400 == 0:
+        leap = True
+    elif year%4 == 0 and year%100 != 0:
+        leap = True
+        
+    return leap
+
+
+
 https://www.hackerrank.com/challenges/grading/problem (done)
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string &);
+string rtrim(const string &);
+
+/*
+ * Complete the 'gradingStudents' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts INTEGER_ARRAY grades as parameter.
+ */
+
+vector<int> gradingStudents(vector<int> grades) {
+    vector<int> ans;
+    for(int i = 0;i<grades.size();i++){
+        int marks = grades[i];
+        if(marks>=38)
+        {
+            int d = marks / 5;
+            if((d+1)* 5 - marks < 3)
+                ans.push_back((d+1) * 5);
+            else
+                ans.push_back(marks);
+        }
+        else
+        {
+            ans.push_back(marks);
+        }
+    }
+    return ans;
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string grades_count_temp;
+    getline(cin, grades_count_temp);
+
+    int grades_count = stoi(ltrim(rtrim(grades_count_temp)));
+
+    vector<int> grades(grades_count);
+
+    for (int i = 0; i < grades_count; i++) {
+        string grades_item_temp;
+        getline(cin, grades_item_temp);
+
+        int grades_item = stoi(ltrim(rtrim(grades_item_temp)));
+
+        grades[i] = grades_item;
+    }
+
+    vector<int> result = gradingStudents(grades);
+
+    for (int i = 0; i < result.size(); i++) {
+        fout << result[i];
+
+        if (i != result.size() - 1) {
+            fout << "\n";
+        }
+    }
+
+    fout << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
+string ltrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
+
+string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
+}
+
+
 https://www.codechef.com/LRNDSA01/problems/FCTRL (done)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int ans = 0;
+	    while(n>0)
+	    {
+	        ans += n/5;
+	        n /= 5;
+	    }
+	    cout<<ans<<endl;
+	}
+	return 0;
+}
+
+
 https://www.hackerrank.com/challenges/extra-long-factorials/problem  (done)
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Complete the extraLongFactorials function below.
+void extraLongFactorials(int n) {
+    vector<int> ans;
+    ans.push_back(1);
+    int len,x,rem;
+    while(n>0)
+    {
+        
+        len = ans.size();
+        int carry  = 0;
+        for(int i=len;i>-1;i--)
+        {
+            x = ans[i]*n + carry;
+            ans[i] = x % 10;
+            carry = x / 10;
+        }
+        while(carry)
+        {
+            ans.insert(ans.begin(), carry%10);
+            carry /= 10;
+        }
+        n--;
+        // cout<<ans.size();
+        
+        
+    }
+    for(auto x: ans)
+            cout<<x;
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    extraLongFactorials(n);
+
+    return 0;
+}
+
+
 https://www.hackerrank.com/challenges/printing-pattern-2/problem (done)
 
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+
+    int n;
+    scanf("%d", &n);
+  	// Complete the code to print the pattern.
+    int size = 2 * n - 1;
+    int start = 0;
+    int end = size - 1;
+    int arr[size][size];
+    while(n != 0)
+    {
+        for(int i = start; i<=end; i++)
+    {
+        for(int j = start; j<= end; j++)
+        {
+            if(i == start || i == end || j == start || j == end)
+            arr[i][j] = n;
+        }
+        
+    }
+    start++;
+        --end;
+        --n;
+    }
+    
+    for(int i=0;i<size;i++)
+    {
+        for(int j=0;j<size;j++)
+            printf("%d ", arr[i][j]);
+        printf("\n");
+    }
+      
+    return 0;
+}
+
+
 Hard
-https://www.geeksforgeeks.org/multiply-the-given-number-by-2-such-that-it-is-divisible-by-10/
+https://www.geeksforgeeks.org/multiply-the-given-number-by-2-such-that-it-is-divisible-by-10/ (done)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin>>n;
+	if(n%2 == 0)
+	cout<<0<<endl;
+	else if(n % 2 == 5)
+	cout<<1<<endl;
+	else
+	cout<<-1<<endl;
+	return 0;
+}
+
 https://codeforces.com/contest/50/problem/A
 https://mycode.prepbytes.com/problems/fundamentals/PRIMNUM
 https://codeforces.com/problemset/problem/1249/C1
