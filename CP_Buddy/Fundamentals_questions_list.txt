@@ -436,6 +436,19 @@ int main()
 }
 
 https://codeforces.com/contest/50/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+	int m, n;
+	cin >> m >> n;
+	cout << ceil((m * n) / 2) << endl;
+	return 0;
+}
+
 https://mycode.prepbytes.com/problems/fundamentals/PRIMNUM
 https://codeforces.com/problemset/problem/1249/C1
 https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
