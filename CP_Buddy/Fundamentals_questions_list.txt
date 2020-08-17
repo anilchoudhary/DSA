@@ -450,6 +450,39 @@ int main()
 }
 
 https://mycode.prepbytes.com/problems/fundamentals/PRIMNUM
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int count_digit(int n)
+{
+	int total_digits = 0;
+	while(n>0)
+	{
+		total_digits++;
+		n /= 10;
+	}
+	return total_digits;
+}
+
+int main()
+{
+	int n;
+	int lcm = 2*3*5*7;
+	if(n<3)
+	{
+		cout<<-1<<endl;
+		return 0;
+	}
+	int i=2;
+	while(count_digit(lcm) != n)
+	{
+		lcm *= i;
+	}
+	cout<<lcm<<endl;
+	return 0;
+}
+
 https://codeforces.com/problemset/problem/1249/C1
 https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
 
