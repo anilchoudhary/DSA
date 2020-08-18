@@ -435,7 +435,7 @@ int main()
 	return 0;
 }
 
-https://codeforces.com/contest/50/problem/A
+https://codeforces.com/contest/50/problem/A (done)
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -449,39 +449,55 @@ int main()
 	return 0;
 }
 
-https://mycode.prepbytes.com/problems/fundamentals/PRIMNUM
+https://mycode.prepbytes.com/problems/fundamentals/PRIMNUM (done)
+
 
 #include<bits/stdc++.h>
 using namespace std;
 
-int count_digit(int n)
-{
-	int total_digits = 0;
-	while(n>0)
-	{
-		total_digits++;
-		n /= 10;
-	}
-	return total_digits;
-}
 
 int main()
 {
+{
 	int n;
-	int lcm = 2*3*5*7;
-	if(n<3)
+	cin>>n;
+	// n = 6;
+	if (n < 3)
 	{
-		cout<<-1<<endl;
+		cout << -1 << endl;
 		return 0;
 	}
-	int i=2;
-	while(count_digit(lcm) != n)
+	else if(n==3)
 	{
-		lcm *= i;
+	  cout<<210<<endl;
+	  return 0;
 	}
-	cout<<lcm<<endl;
-	return 0;
+	else
+	{
+	  int rem = n%6;
+	  cout<<1;
+	  for(int i=1;i<=n-4;i++)
+	  cout<<0;
+	  switch(rem)
+	  {
+	    case 4: cout<<"050";
+	    break;
+	    case 5: cout<<"080";
+	    break;
+	    case 0: cout<<170;
+	    break;
+	    case 1: cout<<"020";
+	    break;
+	    case 2: cout<<200;
+	    break;
+	    case 3: cout<<110;
+	    break;
+	  }
+	}
 }
+return 0;
+}
+
 
 https://codeforces.com/problemset/problem/1249/C1
 https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
