@@ -1,36 +1,45 @@
 #include<bits/stdc++.h>
-#define int long long
 using namespace std;
 
 
-int32_t main()
+int main()
 {
-	int n;
-	if (n < 3)
 	{
-		cout << -1 << endl;
-		return 0;
-	}
-	int x = 2;
-	int carry = 0;
-	vector<int> vec{2, 1, 0};
-	while (vec.size() != n)
-	{
-		for (int i = vec.size() - 1; i > -1; i--)
+		int n;
+		cin >> n;
+		// n = 6;
+		if (n < 3)
 		{
-
-			vec[i] = (vec[i] * x + carry) % 10;
-			carry = (vec[i] * x + carry) / 10;
+			cout << -1 << endl;
+			return 0;
 		}
-		x++;
-		while (carry)
+		else if (n == 3)
 		{
-			vec.insert(vec.begin(), carry % 10);
-			carry = carry / 10;
+			cout << 210 << endl;
+			return 0;
+		}
+		else
+		{
+			int rem = n % 6;
+			cout << 1;
+			for (int i = 1; i <= n - 4; i++)
+				cout << 0;
+			switch (rem)
+			{
+			case 4: cout << "050";
+				break;
+			case 5: cout << "080";
+				break;
+			case 0: cout << 170;
+				break;
+			case 1: cout << "020";
+				break;
+			case 2: cout << 200;
+				break;
+			case 3: cout << 110;
+				break;
+			}
 		}
 	}
-
-	for (auto x : vec)
-		cout << x;
 	return 0;
 }
