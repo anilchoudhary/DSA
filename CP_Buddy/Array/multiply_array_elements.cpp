@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int multiply(int array[], int n)
+{
+	int pro = 1;
+	for (int i = 0; i < n; i++)
+		pro = pro * array[i];
+	return pro;
+}
+
+int main()
+{
+	int array[] = {1, 2, 3, 4, 5, 6};
+	int n = sizeof(array) / sizeof(array[0]);
+
+	int pro = 1;
+	for (int i = 0; i < n; i++)
+		pro = pro * array[i];
+	cout << pro;
+	return 0;
+}
