@@ -1,6 +1,45 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main()
+#define int long long int
+
+int solve(int arr[], int size)
+{
+
+	int right_sum = 0, left_sum = 0;
+	// Maintains left cumulative sum
+	left_sum = 0;
+
+	// Maintains right cumulative sum
+	right_sum = 0;
+	int i = -1, j = -1;
+
+	for ( i = 0, j = size - 1 ; i < j ; i++, j-- )
+	{
+		left_sum += arr[i];
+		right_sum += arr[j];
+
+		// Keep moving i towards center until
+		// left_sum is found lesser than right_sum
+		while (left_sum < right_sum && i < j)
+		{
+			i++;
+			left_sum += arr[i];
+		}
+		// Keep moving j towards center until
+		// right_sum is found lesser than left_sum
+		while (right_sum < left_sum && i < j)
+		{
+			j--;
+			right_sum += arr[j];
+		}
+	}
+	if (left_sum == right_sum && i == j )
+		return i + 1;
+	else
+		return -1;
+}
+
+int32_t main()
 {
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
@@ -12,24 +51,10 @@ int main()
 	{
 		int n;
 		cin >> n;
-		vector<int> vec(n);
+		int vec[n];
 		for (int i = 0; i < n; i++)
 			cin >> vec[i];
-		if (n == 1)
-			cout << vec[0];
-		vector<int> presum;
-		presum.push_back(vec[0]);
-		for (int i = 1; i < n; i++)
-		{
-			presum[i] = vec[i] + presum[i - 1];
-		}
-		int x;
-		for (int i = 1; i < n; i++)
-		{
-			x = presum[n - 1] - presum[i];
-			if (x == presum[i - 1])
-				cout << i + 1 << " ";
-		}
+		cout << solve(vec, n);
 		cout << endl;
 	}
 	return 0;
