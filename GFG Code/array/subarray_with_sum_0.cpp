@@ -20,7 +20,7 @@ bool subArrayExists(int arr[], int n)
 
 int main()
 {
-	int arr[] = { -3, 2, 1, 3, 1, 6};
+	int arr[] = { -1, -1, 1, -1, -1};
 	int n = sizeof(arr) / sizeof(arr[0]);
 	if (subArrayExists(arr, n))
 		cout << "Found a subarray with 0 sum";
