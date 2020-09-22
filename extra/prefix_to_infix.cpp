@@ -27,7 +27,7 @@ string pop()
 int main()
 {
 	string prefix = "*-a/bc-/akl";
-	for (int i = prefix.length(); i >= 0; i--)
+	for (int i = prefix.length() - 1; i >= 0; i--)
 	{
 		if (!isalpha(prefix[i]))
 		{
@@ -43,6 +43,7 @@ int main()
 			push(s);
 		}
 	}
-	cout << pop();
+	cout << pop() << endl;
+
 	return 0;
 }
