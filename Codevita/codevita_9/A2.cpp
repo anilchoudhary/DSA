@@ -22,7 +22,7 @@ int main()
 	}
 
 	int side_biggest_square = pow(count_of_d, 0.5);
-	cout << count_of_d << endl;
+	// cout << count_of_d << endl;
 	cout << side_biggest_square;
 
 	return 0;

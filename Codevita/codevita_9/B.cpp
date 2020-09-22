@@ -3,10 +3,10 @@ using namespace std;
 
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
 	int test_cases;
 	cin >> test_cases;
 	while (test_cases--)
@@ -14,17 +14,18 @@ int main()
 		int size_of_vector;
 		cin >> size_of_vector;
 
-		vector<int> vec(size_of_vector);
+		// vector<int> vec(size_of_vector);
+		int x;
 		int remainder_0 = 0;
 		int remainder_1 = 0;
 		int remainder_2 = 0;
 
 		for (int i = 0; i < size_of_vector; i++)
 		{
-			cin >> vec[i];
-			if (vec[i] % 3 == 0)
+			cin >> x;
+			if (x % 3 == 0)
 				remainder_0++;
-			else if (vec[i] % 3 == 1)
+			else if (x % 3 == 1)
 				remainder_1++;
 			else
 				remainder_2++;

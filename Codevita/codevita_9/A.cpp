@@ -4,10 +4,10 @@ using namespace std;
 
 int32_t main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
 	int size_of_org_wall;
 	cin >> size_of_org_wall;
 	vector<vector<char>> org_wall(size_of_org_wall, vector<char>(size_of_org_wall));
@@ -58,6 +58,8 @@ int32_t main()
 				side_biggest_square = i + 1;
 		}
 	}
+	// cout << side_biggest_square;
+	// cout << endl;
 
 	for (int i = 0; i < size_of_org_wall; i++)
 	{
