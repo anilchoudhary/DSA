@@ -4,8 +4,8 @@ using namespace std;
 int partition(vector<int>& vec, int l, int h)
 {
 	int pivot = vec[h];
-	int j = 0;
-	for (int i = 0; i < h; i++)
+	int j = l;
+	for (int i = l; i < h; i++)
 	{
 		if (vec[i] < pivot)
 		{
